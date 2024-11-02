@@ -16,6 +16,18 @@ class Oddball extends Particle {
       myX = mouseX;
       myY = mouseY;
     }
+      if (mouseX>myX){
+      myX = myX + (int)(Math.random() *5 - 1);
+    }
+    else{
+      myX = myX + (int)(Math.random() * 5 -3);
+    }
+    if (mouseY>myY){
+      myY = myY + (int)(Math.random() * 5 - 1);
+    }
+    else{
+      myY = myY + (int)(Math.random() * 5 -3);
+    }
     myX = myX + (int)(Math.random() * 5 - 3);
     myY = myY + (int)(Math.random() * 5 - 3);
     myColor = colors[(int)(Math.random() * colors.length)];
@@ -59,11 +71,11 @@ Oddball thing2;
 void setup() {
   size(500, 500);
   thing = new Particle[1000];
-  setColorTheme(); 
+  setColorTheme(); // Initialize the color theme
   for (int i = 0; i < thing.length; i++) {
     thing[i] = new Particle();
   }
-  thing2 = new Oddball(); 
+  thing2 = new Oddball(); // Initialize the Oddball instance
 }
 
 void draw() {
@@ -77,7 +89,7 @@ void draw() {
 }
 
 void mousePressed() {
-  setColorTheme(); 
+  setColorTheme(); // Change color theme on mouse press
   for (int i = 0; i < thing.length; i++) {
     thing[i].myColor = colors[(int)(Math.random() * colors.length)];
   }
